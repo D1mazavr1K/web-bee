@@ -9,7 +9,6 @@ $bg-hover-btn: #cbcbcb;
 $msg_red_bg: #e33939;
 $msg_green_bg: #47b091;
 
-
 @font-face {
   font-family: 'Roboto';
   src: url('./fonts/Roboto-Regular.ttf') format('truetype');
@@ -29,10 +28,6 @@ body {
   margin: 0 auto;
 }
 
-.d-block {
-  display: block;
-}
-
 img.icon {
   width: 24px;
   height: 24px;
@@ -43,7 +38,7 @@ a {
   color: inherit;
 }
 
-header div:has(>a:hover), nav div:has(>a:hover) {
+header li:has(>a:hover), nav li:has(>a:hover) {
   cursor: pointer;
   background-color: $bg-hover-btn;
 }
@@ -53,93 +48,27 @@ a.link {
 }
 
 header {
-  padding: 0 32px;
   min-height: 64px;
-  display: flex;
-  justify-content: space-between;
   box-shadow: 0px 1px 1px 0px #0000001A;
 
   .header_left {
     font-size: 18px;
     height: 24px;
     width: 188px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-      vertical-align: middle;
-    }
   }
 
-
-  .header_right {
-    font-size: 14px;
-    width: 232px;
-    height: 48px;
-    margin-top: 8px;
-
-    &.wrapper {
-      display: flex;
-      justify-content: space-between;
-
-      .item {
-        width: 56px;
-
-        a {
-          height: 48px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-        }
-      }
-    }
-
-  }
 }
 
 nav {
-  padding: 0 32px;
   min-height: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   background-color: $bg2-color;
 
-  .wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-left, .nav_right {
-    .item {
-      height: 40px;
-      padding: 0 16px;
-
-      &.active {
-        background-color: $bg-color;
-      }
-
-      a {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        span {
-          margin-left: 10px;
-        }
-      }
-    }
+  li:has(a.active) {
+    background-color: $bg-color;
   }
 }
 
 main {
-  display: flex;
-  gap: 32px;
-  padding: 32px 32px;
   background-color: $bg-color;
 }
 
@@ -150,33 +79,15 @@ article {
 
   .post_title {
     min-height: 56px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     color: $black-color;
-
-    .post_title_info {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
   }
 
   img.post_img {
     width: 100%;
   }
 
-  .post_msg_title {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 16px;
-  }
-
   .post_msg_body {
     border-left: $grey-color 2px solid;
-    padding-left: 8px;
-    margin-top: 16px;
 
     p {
       font-size: 14px;
@@ -184,21 +95,7 @@ article {
     }
 
     .post_msg_date {
-      margin-top: 16px;
       color: $second-tx-color;
-    }
-  }
-
-  .post_msg_footer {
-    display: flex;
-    margin-top: 16px;
-    padding-bottom: 56px;
-    gap: 32px;
-
-    .item {
-      display: flex;
-      gap: 8px;
-      align-items: center;
     }
   }
 }
@@ -211,13 +108,7 @@ aside {
 
   .profile {
     background-color: $white-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 296px;
-    padding: 32px 0;
-    gap: 16px;
 
     .profile_photo {
       max-width: 132px;
@@ -231,11 +122,6 @@ aside {
     }
 
     .profile_description {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
 
       .profile_name {
         font-size: 18px;
@@ -258,10 +144,6 @@ aside {
 
   .menu_header {
     height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
     color: $black-color;
     font-weight: 500;
   }
@@ -272,11 +154,6 @@ aside {
 
     .menu_section {
       border-top: $grey-color 1px solid;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 16px 16px;
-
 
       .menu_item {
         display: flex;
