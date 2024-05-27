@@ -16,7 +16,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src/pages/activity.html")
+            template: path.resolve(__dirname, "src/pages/activity.html"),
+            filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "src/pages/map.html"),
+            filename: 'map.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, "src/pages/timer.html"),
+            filename: 'timer.html',
         }),
         new CopyPlugin({
             patterns: [
