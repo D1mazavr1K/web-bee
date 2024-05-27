@@ -1,0 +1,325 @@
+$blue-color: #5095ec;
+$black-color: #505050;
+$second-tx-color: #8f8f8f;
+$grey-color: #d3d8de;
+$bg-color: #f1f1f1;
+$white-color: #fff;
+$bg2-color: #fafafa;
+$bg-hover-btn: #cbcbcb;
+$msg_red_bg: #e33939;
+$msg_green_bg: #47b091;
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #505050;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+img.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-rotate {
+  transform: rotate(180deg);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header li:has(>a:hover), nav li:has(>a:hover) {
+  cursor: pointer;
+  background-color: $bg-hover-btn;
+}
+
+a.link {
+  color: $blue-color;
+}
+
+header {
+  min-height: 64px;
+  box-shadow: 0px 1px 1px 0px #0000001A;
+
+  .header_left {
+    font-size: 18px;
+    height: 24px;
+    width: 188px;
+  }
+
+}
+
+nav {
+  min-height: 40px;
+  background-color: $bg2-color;
+
+  li:has(a.active) {
+    background-color: $bg-color;
+  }
+}
+
+main {
+  background-color: $bg-color;
+}
+
+article {
+  background-color: $white-color;
+  padding: 0 32px;
+  margin-bottom: 32px;
+
+  .post_title {
+    min-height: 56px;
+    color: $black-color;
+  }
+
+  img.post_img {
+    width: 100%;
+  }
+
+  .post_msg_body {
+    border-left: $grey-color 2px solid;
+
+    p {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .post_msg_date {
+      color: $second-tx-color;
+    }
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  min-width: 264px;
+  gap: 32px;
+
+  .profile {
+    background-color: $white-color;
+    min-height: 296px;
+
+    .profile_photo {
+      max-width: 132px;
+      max-height: 132px;
+
+      img {
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .profile_description {
+
+      .profile_name {
+        font-size: 18px;
+        line-height: 21px;
+        color: $black-color;
+      }
+
+      .profile_job {
+        font-size: 14px;
+        line-height: 16px;
+        color: $second-tx-color;
+      }
+    }
+
+    .profile_contacts {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .menu_header {
+    height: 38px;
+    color: $black-color;
+    font-weight: 500;
+  }
+
+  menu {
+    background-color: $white-color;
+    min-width: 264px;
+
+    .menu_section {
+      border-top: $grey-color 1px solid;
+
+      .menu_item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .account_balance_val {
+          font-size: 12px;
+          line-height: 14px;
+          color: $second-tx-color;
+        }
+
+        .menu_item_left {
+          font-size: 14px;
+          line-height: 16px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .menu_item_right {
+          display: flex;
+          align-items: center;
+
+          .menu_val {
+            border-radius: 8px;
+            padding: 0 5px;
+            color: $white-color;
+            font-size: 12px;
+            line-height: 16px;
+          }
+
+          .menu_val_red {
+            background-color: $msg_red_bg;
+          }
+
+          .menu_val_green {
+            background-color: $msg_green_bg;
+          }
+        }
+      }
+    }
+  }
+
+  .send_msg {
+    background-color: $white-color;
+    min-width: 264px;
+    min-height: 190px;
+
+    .form_header {
+      @extend .menu_header
+    }
+
+    .share_form {
+      border-top: $grey-color 1px solid;
+      padding: 16px 16px;
+
+      textarea {
+        padding: 16px 16px;
+        width: 100%;
+        min-height: 88px;
+        border-radius: 4px;
+        border: $grey-color 1px solid;
+      }
+
+      textarea::placeholder {
+        font-size: 14px;
+        line-height: 20px;
+        color: $second-tx-color;
+      }
+
+      .btn {
+        margin-top: 8px;
+        background-color: $blue-color;
+        height: 32px;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        color: $white-color;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.bg_div {
+  background-color: $bg-color;
+  min-height: 75vh;
+  position: relative;
+}
+
+.bg_white {
+  height: 90%;
+  width: 85%;
+  position: absolute;
+  background-color: $white-color;
+}
+
+#map {
+  height: 100%;
+
+}
+
+#rotate {
+  position: relative;
+  top: -75%;
+  height: 60%;
+  width: auto;
+  background: transparent url('../public/icons/Redo.png') no-repeat center center;
+  background-size: 20%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@media (max-width: 524px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+
+    .item_right {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 810px) {
+  nav {
+    align-items: center;
+
+    .wrapper {
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  .post_title {
+    flex-direction: column;
+    padding: 16px 0;
+    gap: 16px;
+  }
+
+  main {
+    flex-direction: column-reverse;
+
+    aside {
+      width: 100%;
+
+      .btn {
+        width: 50%;
+      }
+
+    }
+  }
+}
