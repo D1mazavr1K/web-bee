@@ -33,6 +33,10 @@ img.icon {
   height: 24px;
 }
 
+.icon-rotate {
+  transform: rotate(180deg);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -263,6 +267,7 @@ aside {
   position: relative;
   top: -75%;
   height: 60%;
+  width: auto;
   background: transparent url('../public/icons/Redo.png') no-repeat center center;
   background-size: 20%;
   animation: spin 1s linear infinite;
