@@ -1,49 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles.scss'
-import ymaps from 'ymaps';
 
-import React from 'react'
-import {createRoot} from "react-dom/client";
+import {createRoot} from "react-dom/client"
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import React, {useEffect, useState} from "react"
 
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-async function initMap() {
-    await sleep(2000);
-    return ymaps.load()
-        .then(maps => {
-            const map = new maps.Map('map', {
-                center: [56.741114, 37.225566],
-                zoom: 17
-            });
-            const marker = new maps.GeoObject({
-                geometry: {
-                    type: "Point",
-                    coordinates: [56.741114, 37.225566]
-                },
-                properties: {
-                    iconContent: 'Я здесь!',
-                    hintContent: 'Да да.... я все еше живу в общежитие университета'
-                }
-            })
-            map.geoObjects.add(marker)
-            document.getElementById('rotate').remove()
-        })
-        .catch(error => {
-            console.log('Failed to load Yandex Maps', error)
-        })
-}
-
-await initMap()
+import Header from "./pages/header"
+import Navbar from "./pages/navbar"
+import Activity from "./pages/activity"
+import {Map} from "./pages/map"
+import {Timer} from "./pages/timer"
 
 
 function App() {
+    const [timeOnSite, setTimeOnSite] = useState(0)
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setTimeOnSite(prevTime => prevTime + 1000)
+        }, 1000)
+        return () => clearInterval(intervalId)
+    }, [])
+
+
     return (
         <>
-            <h1>HELLO</h1>
+            <Header/>
+            <Navbar/>
+            <Routes>
+                <Route path="/" element={<Activity/>}/>
+                <Route path="/map" element={<Map/>}/>
+                <Route path="/timer" element={<Timer time={timeOnSite} />}/>
+            </Routes>
         </>
     )
 }
 
 
 const root = createRoot(document.getElementById('app'))
-root.render(<App/>)
+root.render(
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
+)
