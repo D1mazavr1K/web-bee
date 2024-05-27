@@ -241,6 +241,21 @@ aside {
   }
 }
 
+.bg_div {
+  background-color: $bg-color;
+  min-height: 75vh;
+  position: relative;
+}
+
+.bg_white{
+  height: 90%;
+  width: 85%;
+  position: absolute;
+  background-color: $white-color;
+}
+#map {
+   height: 100%;
+}
 
 @media (max-width: 524px) {
   header {
