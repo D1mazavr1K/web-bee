@@ -5,27 +5,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     context: path.resolve(__dirname, "src"),
-    entry: "./index.js",
+    entry: "./index.jsx",
     output: {
         filename: "[name].[contenthash].js",
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
     resolve: {
-        extensions: [".js"]
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src/pages/activity.html"),
-            filename: 'index.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src/pages/map.html"),
-            filename: 'map.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "src/pages/timer.html"),
-            filename: 'timer.html',
+            template: path.resolve(__dirname, "public/index.html"),
         }),
         new CopyPlugin({
             patterns: [
@@ -39,6 +30,11 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.[tj]sx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
